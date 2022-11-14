@@ -30,13 +30,14 @@ class RangeTest {
 	void tearDown() throws Exception {
 	}
 
-	@DisplayName("booleans")
 	@Nested
-	@ParameterizedTest
-	void testRang1() {
-		final Range range = new Range(0.0, 10.5);
-		boolean return1 = range.contains(-0.1);
-		assertFalse(return1);
+	class test1 {
+		@ParameterizedTest
+		@ValueSource(doubles = {0.0, 10.5})
+		Range range = new Range();
+			//@ValueSource(doubles = {0.0, 10.5})
+			void test1(double d) {
+			assertFalse(range.contains(d));
 	}
 
 

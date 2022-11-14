@@ -34,8 +34,9 @@ class EmployeeTest {
 	@Test
 	void testEmployee() {
 		InputStream input = getClass().getResourceAsStream("Employee.txt");
-		Employee employee = new Employee();
-		List<Employee> empList = new ArrayList<Employee>();
+		//Employee employee = new Employee();
+		List<Employee> empList = 		Employee.load(input);
+		Employee employee = empList.get(0);
 		assertAll("empList",
 				  () -> assertEquals("Ichiro", employee.getFirstName()),
 				  () -> assertEquals("Tanaka", employee.getLastName()),
