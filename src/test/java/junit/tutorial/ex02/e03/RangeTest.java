@@ -1,4 +1,4 @@
-package junit.tutorial.ex01.e02;
+package junit.tutorial.ex02.e03;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -6,9 +6,13 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Nested;
 
-class CalculatorTest {
+class RangeTest {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -26,13 +30,14 @@ class CalculatorTest {
 	void tearDown() throws Exception {
 	}
 
-	@Test
-	void test() {
-		Calculator calculator =new Calculator();
-		assertThrows(IllegalArgumentException.class,() -> calculator.divide(4,0));
+	@DisplayName("booleans")
+	@Nested
+	@ParameterizedTest
+	void testRang1() {
+		final Range range = new Range(0.0, 10.5);
+		boolean return1 = range.contains(-0.1);
+		assertFalse(return1);
 	}
 
 
-		
 }
-	

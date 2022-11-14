@@ -30,12 +30,13 @@ class NumberUtilsTest {
 	@Test
 	void test1() {
 		NumberUtils numberUtils =new NumberUtils();
-		assertTrue(numberUtils.isEven(10));
+		assertTrue(NumberUtils.isEven(10));
+
 	}
 	@Test
 	void test2() {
 		NumberUtils numberUtils =new NumberUtils();
-		assertFalse(numberUtils.isEven(7));
+		assertFalse(NumberUtils.isEven(7));
 	}
 		
 

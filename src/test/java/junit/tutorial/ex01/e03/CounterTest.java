@@ -27,8 +27,24 @@ class CounterTest {
 	}
 
 	@Test
-	void test() {
-		fail("まだ実装されていません");
+	void testCount1() {
+		Counter counter = new Counter();
+		//int count = 0;
+		int result = counter.increment();
+		assertEquals(1,result);
 	}
-
+	@Test
+	void testCount2() {
+		Counter counter = new Counter();
+		int count = 1;
+		int result = counter.increment();
+		assertEquals(2,result);
+	}
+	@Test
+	void testCount3() {
+		Counter counter = new Counter();
+		int count = 50;
+		int result = counter.increment();
+		assertEquals(51,result);
+	}
 }
