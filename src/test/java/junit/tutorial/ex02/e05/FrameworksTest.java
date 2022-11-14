@@ -6,7 +6,10 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class FrameworksTest {
 
@@ -26,9 +29,16 @@ class FrameworksTest {
 	void tearDown() throws Exception {
 	}
 
-	@Test
-	void test() {
-		fail("まだ実装されていません");
+	@ParameterizedTest
+	@CsvSource({
+		"GlassFish, Oracle, true","GlassFish, DB2, true",
+		"GlassFish, PostgreSQL, true","GlassFish, MySQL, true",
+		"JBoss, Oracle, false","JBoss, DB2, true",
+		"JBoss, PostgreSQL, true","JBoss, MySQL, false",
+		"Tomcat, Oracle, false","Tomcat, DB2, false",
+		"Tomcat, PostgreSQL, false","Tomcat, MySQL, true"
+	})
+	void test(ApplicationServer appServer, Database db, boolean expected) {
+		assertEquals(expected, Frameworks.isSupport(appServer, db));
 	}
-
 }

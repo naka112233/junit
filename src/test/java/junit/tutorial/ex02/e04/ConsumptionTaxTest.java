@@ -7,6 +7,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Nested;
 
 class ConsumptionTaxTest {
 
@@ -26,9 +27,9 @@ class ConsumptionTaxTest {
 	void tearDown() throws Exception {
 	}
 
-	@Test
-	void test() {
-		fail("まだ実装されていません");
+	@Nested
+	class test1 {
+		
 	}
 
 }
